@@ -3,12 +3,12 @@
     <p v-if="user" class="text-lg font-medium text-green-600 mb-4">Hi {{ user.user_metadata.first_name }}</p>
     <p v-else class="text-lg font-medium text-red-600 mb-4">unauthenticated</p>
     <h1 class="text-3xl font-bold mb-4">
-      Nuxt3 + Supabase
+      Welcome to 
       <br>
-      Starter Template
+      Home Page
     </h1>
     <p class="text-gray-600 mb-6">
-      Authentication template with email and password, using Supabase. If you want a quick start to your next Nuxt3 app, please feel free to use this template.
+      Trajalo je 3 dana ali si uspio bravo za tebe.
     </p>
     <div v-if="user" class="mb-4">
       <button @click="logout" class="flex items-center justify-center bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" :disabled="loading">
@@ -49,7 +49,7 @@
   useHead({
     title: 'supaAuth',
     meta: [
-      { name: 'description', content: 'Authentication template with email and password, using Supabase. If you want to a quick start to your next Nuxt3 app, please feel free to use this template.' }
+      { name: 'description', content: 'Nisi prijevljen' }
     ]
   })
   </script>
