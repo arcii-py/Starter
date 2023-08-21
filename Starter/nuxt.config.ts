@@ -8,9 +8,9 @@ export default defineNuxtConfig({
   ],
   pwa: {
     manifest: {
-      name: "Nuxt3 PWA",
-      short_name: "Nuxt3 PWA",
-      description: "Testing Nuxt3 PWA",
+      name: "MOTI",
+      short_name: "MOTI",
+      description: "Testing MOTI",
       icons: [
         {
           src: "icons/icon_64x64.png",
