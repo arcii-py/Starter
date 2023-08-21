@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
    // '@vite-pwa/nuxt'
   ],
+
   // pwa: {
   //   manifest: {
   //     name: "Nuxt3 PWA",

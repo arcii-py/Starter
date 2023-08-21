@@ -18,3 +18,53 @@ if (Test-Path $edgeSWPath) {
 } else {
     Write-Output "Edge Service Worker path not found."
 }
+
+
+Remove-Item node_modules -Recurse -Force
+npm install
+npm run dev
+
+
+clear all serviceworker 
+go to:
+edge://serviceworker-internals/
+open console and enter:
+document.querySelectorAll('.unregister').forEach(button => button.click());
+
+
+
+# Navigate to your project directory (modify this path as needed)
+Set-Location "C:\Users\kadri\Desktop\Starter\starter"
+
+# Remove node_modules directory
+Remove-Item node_modules -Recurse -Force
+
+# Remove package-lock.json (for npm users)
+Remove-Item package-lock.json -Force
+
+# Remove yarn.lock (for yarn users)
+Remove-Item yarn.lock -Force
+
+# Remove dist or build directory
+Remove-Item dist -Recurse -Force
+
+# Remove .cache directory
+Remove-Item .cache -Recurse -Force
+
+# Remove babel-cache directory (if exists)
+Remove-Item babel-cache -Recurse -Force
+
+# Remove log files
+Remove-Item *.log -Force
+
+# Remove .tmp directory
+Remove-Item .tmp -Recurse -Force
+
+# Remove .next directory (for Next.js users)
+Remove-Item .next -Recurse -Force
+
+# Install dependencies using npm (uncomment the line below if you're using npm)
+# Invoke-Expression "npm install"
+
+# Install dependencies using yarn (uncomment the line below if you're using yarn)
+# Invoke-Expression "yarn install"
