@@ -1,48 +1,36 @@
 <template>
-    <div class="relative z-10 max-w-screen-sm">
-      <p v-if="user" class="fVeafc in">Hi {{ user.user_metadata.first_name }}</p>
-      <p v-else class="fVeafc">unauthenticated</p>
-      <h1 class="kKxhrq">
-        Nuxt3 + Supabase
-        <br>
-        Starter Template
-      </h1>
-      <p class="kRTmDC">
-        Authentication template with email and password, using Supabase. If you want to a quick start to your next Nuxt3 app, please feel free to use this template.
-      </p>
-      <div class="uQxNj" v-if="user">
-        <button @click="logout" class="ieMfVH" :disabled="loading">
-          <span class="fKlELC" :class="{loading: loading}">
-            Log out
-          </span>
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="jjoFVh" :class="{loading: loading}">
-            <g fill="none" stroke-width="1.5" stroke-linecap="round" class="faEWLr" style="stroke: var(--icon-color);">
-              <circle stroke-opacity=".2" cx="8" cy="8" r="6"></circle>
-              <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
-            </g>
-          </svg>
-        </button>
-      </div>
-      <div class="uQxNj" v-else>
-        <NuxtLink class="bQRHNT" to="/login">
-          <span class="fKlELC">
-            Login 
-            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="taKtSf">
-              <path class="chevron" d="M8 13L13 8L8 3" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
-              <path class="stem" d="M12 8L2 8" stroke-width="1.5"></path>
-            </svg>
-          </span>
-        </NuxtLink>
-        <NuxtLink to="/register">
-          <button class="ieMfVH">
-            <span class="fKlELC">
-              Sign up
-            </span>
-          </button>
-        </NuxtLink>
-      </div>
+  <div class="relative z-10 max-w-screen-sm mx-auto mt-20 p-4">
+    <p v-if="user" class="text-lg font-medium text-green-600 mb-4">Hi {{ user.user_metadata.first_name }}</p>
+    <p v-else class="text-lg font-medium text-red-600 mb-4">unauthenticated</p>
+    <h1 class="text-3xl font-bold mb-4">
+      Nuxt3 + Supabase
+      <br>
+      Starter Template
+    </h1>
+    <p class="text-gray-600 mb-6">
+      Authentication template with email and password, using Supabase. If you want a quick start to your next Nuxt3 app, please feel free to use this template.
+    </p>
+    <div v-if="user" class="mb-4">
+      <button @click="logout" class="flex items-center justify-center bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" :disabled="loading">
+        <span :class="{ 'opacity-50': loading }">Log out</span>
+        <!-- SVG icon can be styled further if needed -->
+      </button>
     </div>
-  </template>
+    <div v-else class="flex space-x-4">
+      <NuxtLink class="flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" to="/login">
+        Login 
+        <!-- SVG icon can be styled further if needed -->
+      </NuxtLink>
+      <NuxtLink to="/register">
+        <button class="flex items-center justify-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          Sign up
+        </button>
+      </NuxtLink>
+    </div>
+  </div>
+</template>
+
+
   
   <script setup lang="ts">
   const client = useSupabaseClient()
