@@ -1,9 +1,7 @@
 <template>
+  <VitePwaManifest />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
 
-<style>
-
-</style>
