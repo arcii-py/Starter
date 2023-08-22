@@ -1,5 +1,6 @@
 /* assets/css/tailwind.css */
-@tailwind base;
+
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -16,7 +17,33 @@
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
+    vertical-align: bottom;  */
+    /* Align with the bottom of the parent */
+    /* animation: typing 2s steps(25, end); */
+     /* 25 steps for 25 characters, adjust as needed */
+  /* } */
+  
+
+/* assets/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
     vertical-align: bottom; /* Align with the bottom of the parent */
     animation: typing 2s steps(25, end); /* 25 steps for 25 characters, adjust as needed */
-  }
-  
+    -webkit-text-size-adjust: 100%; /* For Safari and older Chrome versions */
+    text-size-adjust: 100%; /* Modern browsers */
+}

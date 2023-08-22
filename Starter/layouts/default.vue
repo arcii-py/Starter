@@ -3,4 +3,5 @@
     <Navigation />
     <slot />
   </main>
+  <!-- <Footer /> -->
 </template>

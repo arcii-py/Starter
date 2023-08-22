@@ -1,37 +1,35 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500">
-      <div class="bg-white p-4 sm:p-8 rounded-lg shadow-md w-full sm:w-96">
-          <h1 class="text-2xl font-bold mb-4 text-center">Welcome Back!</h1>
-          <form @submit.prevent="login">
-              <ErrorAlert :error-msg="authError" @clearError="clearError" />
-              <div class="mb-4">
-                  <label class="block text-sm font-medium text-gray-600 mb-2">Email address</label>
-                  <input class="w-full p-2 border rounded-md" type="text" placeholder="Email address" v-model="email" />
-              </div>
-              <div class="mb-4">
-                  <label class="block text-sm font-medium text-gray-600 mb-2">Password</label>
-                  <input class="w-full p-2 border rounded-md" type="password" placeholder="Password" v-model="password" />
-              </div>
-              <div class="mb-4">
-                  <button class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" type="submit"
-                      :disabled="loading">
-                      Sign in
-                  </button>
-              </div>
-              <div class="text-center">
-                  <NuxtLink to="/forgot-password" class="text-blue-500 hover:underline">Forgot your password?</NuxtLink>
-              </div>
-          </form>
-          <div class="mt-4 text-center">
-              <p class="mb-2">Don’t have a SupaAuth account?</p>
-              <NuxtLink to="/register">
-                  <button class="bg-gray-200 text-gray-700 p-2 rounded-md hover:bg-gray-300">
-                      Create new account
-                  </button>
-              </NuxtLink>
-          </div>
-      </div>
-  </div>
+  <main>
+    <h1 class="text-2xl font-bold mb-4 text-center">Welcome Back!</h1>
+    <form @submit.prevent="login">
+        <ErrorAlert :error-msg="authError" @clearError="clearError" />
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-600 mb-2">Email address</label>
+            <input class="w-full p-2 border rounded-md" type="email" placeholder="Email address" v-model="email" />
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-600 mb-2">Password</label>
+            <input class="w-full p-2 border rounded-md" type="password" placeholder="Password" v-model="password" />
+        </div>
+        <div class="mb-4">
+            <button class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" type="submit"
+                :disabled="loading">
+                Sign in
+            </button>
+        </div>
+        <div class="text-center">
+            <NuxtLink to="/forgot-password" class="text-blue-500 hover:underline">Forgot your password?</NuxtLink>
+        </div>
+    </form>
+    <div class="mt-4 text-center">
+        <p class="mb-2">Don’t have a SupaAuth account?</p>
+        <NuxtLink to="/register">
+            <button class="bg-gray-200 text-gray-700 p-2 rounded-md hover:bg-gray-300">
+                Create new account
+            </button>
+        </NuxtLink>
+    </div>
+  </main>
 </template>
 
   
@@ -40,7 +38,7 @@ definePageMeta({
   layout: "auth"
 })
 useHead({
-  title: 'Login | supaAuth'
+  title: 'Login | MOTI'
 })
 const user = useSupabaseUser()
 const loading = ref(false)

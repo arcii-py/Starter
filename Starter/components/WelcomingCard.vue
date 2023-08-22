@@ -1,6 +1,5 @@
 <template>
-    <div
-        class="relative z-10 max-w-screen-md mx-auto mt-20 p-8 sm:p-12 bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105">
+    <div class="relative z-10 max-w-screen-md mx-auto mt-20 p-8 sm:p-12 bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105">
         <p v-if="user" class="text-lg font-medium text-green-600 mb-2">Welcome back, {{ user.user_metadata.first_name }}!
         </p>
         <p v-else class="text-lg font-medium text-red-600 mb-4">Please sign in to continue</p>
@@ -24,6 +23,7 @@
             </NuxtLink>
         </div>
     </div>
+    <slot />
 </template>
 
     
