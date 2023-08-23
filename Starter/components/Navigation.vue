@@ -2,60 +2,112 @@
     <nav class="bg-gradient-to-r from-blue-400 to-green-400 p-4 shadow-md text-white">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
             <div class="flex items-center space-x-4">
-                <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">MOTI</a> 
+                <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">MOTI</a>
             </div>
-            <!-- Rest of the navigation -->
             <div class="space-x-4 hidden md:flex">
                 <a href="/start" class="text-white hover:text-yellow-300 transition-all duration-300">Start Now</a>
                 <a href="/explore" class="text-white hover:text-yellow-300 transition-all duration-300">Explore</a>
                 <a href="/innovate" class="text-white hover:text-yellow-300 transition-all duration-300">Innovate</a>
                 <a href="/connect" class="text-white hover:text-yellow-300 transition-all duration-300">Connect</a>
             </div>
-            <!-- Hamburger menu for smaller screens -->
             <button @click="toggleMenu" class="md:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="h-6 w-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+                <div :class="{ 'change': menuOpen }" class="burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
             </button>
-            <div v-if="menuOpen" class="absolute top-0 left-0 w-full h-full bg-white md:hidden">
-                <!-- Mobile menu content -->
-                <div v-if="menuOpen" class="absolute top-0 left-0 w-full h-full bg-white md:hidden">
-        <!-- Mobile menu content -->
-        <div v-if="menuOpen"
-            class="absolute top-0 left-0 w-full h-full bg-white md:hidden flex flex-col justify-center items-center space-y-4">
-            <NuxtLink to="/start" class="text-black hover:text-yellow-300 transition-all duration-300">Start Now</NuxtLink>
-            <NuxtLink to="/explore" class="text-black hover:text-yellow-300 transition-all duration-300">Explore</NuxtLink>
-            <NuxtLink to="/innovate" class="text-black hover:text-yellow-300 transition-all duration-300">Innovate</NuxtLink>
-            <NuxtLink to="/connect" class="text-black hover:text-yellow-300 transition-all duration-300">Connect</NuxtLink>
-            <button @click="toggleMenu"
-                class="text-black hover:text-yellow-300 transition-all duration-300">Close</button>
-        </div>
-    </div>
-
+            <div :class="{ 'open': menuOpen }"
+                class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white md:hidden transition-transform transform translate-x-full overflow-hidden">
+                <NuxtLink to="/start" class="text-black hover:text-yellow-300 transition-all duration-300 block p-4">
+                    Start Now</NuxtLink>
+                <NuxtLink to="/explore" class="text-black hover:text-yellow-300 transition-all duration-300 block p-4">
+                    Explore</NuxtLink>
+                <NuxtLink to="/innovate" class="text-black hover:text-yellow-300 transition-all duration-300 block p-4">
+                    Innovate</NuxtLink>
+                <NuxtLink to="/connect" class="text-black hover:text-yellow-300 transition-all duration-300 block p-4">
+                    Connect</NuxtLink>
+                    <button @click="toggleMenu"
+                    class="text-black hover:text-yellow-300 transition-all duration-300 block p-4">Close</button>
             </div>
         </div>
     </nav>
-    <p v-if="user" class="text-lg typing-effect hidden md:inline"> Welcome, {{ user.user_metadata.first_name }} !</p>
-    <span>Let's make a difference today.</span>
 </template>
-
+  
 <script setup lang="ts">
-const client = useSupabaseClient()
-const user = useSupabaseUser()
+import { ref } from 'vue';
 
-useHead({
-    title: 'supaAuth',
-    meta: [
-        { name: 'description', content: 'Nisi prijevljen' }
-    ]
-})
-
-import { ref } from 'vue'
-
-const menuOpen = ref(false)
+const menuOpen = ref(false);
 
 const toggleMenu = () => {
-    menuOpen.value = !menuOpen.value
-}
+    menuOpen.value = !menuOpen.value;
+};
 </script>
+  
+<style scoped>
+.burger {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    transition: 0.4s;
+    background-color: #fff;
+}
+
+.change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.mobile-menu {
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000; /* Ensures the menu is above other content */
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Hamburger menu styles */
+.burger {
+  display: block;
+  width: 25px;
+  height: 20px;
+  position: relative;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+</style>
+  

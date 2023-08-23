@@ -10,10 +10,14 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: 'Testing MOTI' }
       ],
+      link: [
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' },
+        { rel: 'stylesheet', href: 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' }
+      ],
       // other head properties
     },
   },
-  devtools: { enabled: true },
+  // devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
   modules: [
     '@nuxtjs/supabase',
