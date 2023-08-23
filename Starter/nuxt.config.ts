@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       // other head properties
     },
   },
-  // devtools: { enabled: true },
+  devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
   modules: [
     '@nuxtjs/supabase',
