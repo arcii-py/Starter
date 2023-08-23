@@ -71,4 +71,6 @@ const login = async () => {
 const clearError = () => {
   authError.value = '';
 };
+
+
 </script>

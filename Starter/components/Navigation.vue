@@ -6,16 +6,11 @@
             <MobileMenu />
         </div>
     </nav>
+    <GreatingUser />
 </template>
 
-<script>
+
+<script setup lang="ts">
 import DesktopMenu from './DesktopMenu.vue';
 import MobileMenu from './MobileMenu.vue';
-
-export default {
-    components: {
-        DesktopMenu,
-        MobileMenu,
-    },
-};
 </script>

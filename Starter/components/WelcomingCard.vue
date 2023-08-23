@@ -4,7 +4,7 @@
         </p>
         <p v-else class="text-lg font-medium text-red-600 mb-4">Please sign in to continue</p>
         <h1 class="text-3xl font-bold mb-4">Your Personalized Home Page</h1>
-        <p class="text-gray-600 mb-6 italic">"Trajalo je 3 dana ali si uspio bravo za tebe."</p>
+        <p class="text-gray-600 mb-6 italic">"Lets start with something wonderful !"</p>
         <div v-if="user" class="mb-4">
             <button @click="logout"
                 class="flex items-center justify-center bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition-all"

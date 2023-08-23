@@ -47,3 +47,13 @@
     -webkit-text-size-adjust: 100%; /* For Safari and older Chrome versions */
     text-size-adjust: 100%; /* Modern browsers */
 }
+
+@media (max-width: 600px) {
+  body {
+      font-size: 14px; /* Smaller font size for screens under 600px wide */
+  }
+}
+
+body {
+  font-size: 16px; /* Base font size */
+}

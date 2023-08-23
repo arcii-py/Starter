@@ -1,4 +1,4 @@
 <template>
- 
+ <!-- <WelcomingCard /> -->
 </template>
   

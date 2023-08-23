@@ -1,7 +1,6 @@
 <template>
     <div class="pills">
-        <NuxtLink v-for="pill in pills" :key="pill.name" :to="pill.link"
-            @click="onPillClick"
+        <NuxtLink v-for="pill in pills" :key="pill.name" :to="pill.link" @click="onPillClick"
             class="menu-item text-black hover:text-yellow-300 transition-all duration-300">
             {{ pill.name }}
         </NuxtLink>
@@ -40,15 +39,15 @@ export const menuPills = [
 <style scoped>
 .menu-item {
     background-color: #ddd;
-  border: none;
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 8px;
+    cursor: pointer;
+    border-radius: 16px;
 }
 
 /* Desktop specific styles */
@@ -59,22 +58,28 @@ export const menuPills = [
     }
 
     .menu-item {
-  padding: 8px 16px;
-  background: #4B5563;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100px; /* Same size for all pills */
-  text-align: center;
-  color: #fff;
-  text-decoration: none; /* Removes underline */
-  display: inline-block; /* Aligns pills horizontally */
-  margin-right: 8px; /* Adds spacing between pills */
-  transition: background 0.3s ease, color 0.3s ease; /* Adds transition for color */
-}
+        padding: 8px 16px;
+        background: #4B5563;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100px;
+        /* Same size for all pills */
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        /* Removes underline */
+        display: inline-block;
+        /* Aligns pills horizontally */
+        margin-right: 8px;
+        /* Adds spacing between pills */
+        transition: background 0.3s ease, color 0.3s ease;
+        /* Adds transition for color */
+        
+    }
 
-.menu-item:hover {
-  background: #f3f3f3;
-  color: #333;
-}
+    .menu-item:hover {
+        background: #f3f3f3;
+        color: #333;
+    }
 }</style>
   
