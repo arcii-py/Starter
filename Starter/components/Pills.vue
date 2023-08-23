@@ -32,13 +32,16 @@ export const menuPills = [
   
 <style scoped>
 .menu-item {
-    padding: 8px 16px;
-    background: #4B5563;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100px;
-    /* Same size for all pills */
-    text-align: center;
+    background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
 }
 
 /* Desktop specific styles */
