@@ -13,11 +13,11 @@
                 <div class="region mt-2 mb-auto">
                     <div v-if="settingsOpen" class="settings-region">
                         <!-- Settings pills -->
-                        <Pills :pills="settingsPills" />
+                        <Pills :pills="settingsPills" :onPillClick="toggleMenu" />
                     </div>
                     <div v-if="menuItemsOpen" class="menu-region">
                         <!-- Menu pills -->
-                        <Pills :pills="menuPills" />
+                        <Pills :pills="menuPills" :onPillClick="toggleMenu" />
                     </div>
                 </div>
                 <div class="flex flex-col items-start w-full">
@@ -28,7 +28,7 @@
                         <i class="icon ion-navicon text-black text-lg mr-2"></i>
                     </button>
                     <NuxtLink to="/">
-                        <button class="flex items-center">
+                        <button @click="toggleMenu" class="flex items-center">
                             <i class="icon ion-home text-black text-lg mr-2"></i>
                         </button>
                     </NuxtLink>

@@ -1,11 +1,13 @@
 <template>
     <div class="pills">
         <NuxtLink v-for="pill in pills" :key="pill.name" :to="pill.link"
+            @click="onPillClick"
             class="menu-item text-black hover:text-yellow-300 transition-all duration-300">
             {{ pill.name }}
         </NuxtLink>
     </div>
 </template>
+
   
 <script>
 export default {
@@ -14,8 +16,13 @@ export default {
             type: Array,
             required: true,
         },
+        onPillClick: {
+            type: Function,
+            required: false,
+        },
     },
 };
+
 
 export const settingsPills = [
     { name: 'Profile', link: '/profile' },
