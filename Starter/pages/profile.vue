@@ -6,9 +6,7 @@
   </template>
   
   <script setup lang="ts">
-  definePageMeta({
-    middleware: ['auth'],
-  });
+  
   const user = useSupabaseUser();
   useHead({
     title: 'My Profile',
