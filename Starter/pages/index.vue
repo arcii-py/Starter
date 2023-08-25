@@ -1,4 +1,5 @@
 <template>
  <!-- <WelcomingCard /> -->
+ <StuffVideoWithTitle />
 </template>
   

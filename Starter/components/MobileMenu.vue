@@ -11,7 +11,7 @@
             class="mobile-menu fixed bottom-0 right-0 w-full h-0 bg-gray-800 md:hidden transition-all overflow-hidden">
             <div class="contain flex flex-col justify-center items-center space-y-4 px-4 py-4">
                 <!-- Pill container -->
-                <div class="region mt-5 mb-auto w-full center flex justify-center">
+                <div class="region mt-5 mb-auto w-full center flex justify-center ">
                     <div v-if="settingsOpen" class="settings-region">
                         <!-- Settings pills -->
                         <Pills :pills="settingsPills" :onPillClick="toggleMenu" />
@@ -31,19 +31,22 @@
                     </button>
             </div>
             <!-- Left menu container -->
-            <div class="flex flex-col items-center w-10 p-3 mt-20 ml-4"> <!-- w-10 items-left dont change -->
+            <div class="flex justify-end">
+            <div class="flex flex-col items-center w-10 p-3 mt-20 mr-4">
                 <button @click="toggleSettings" class="flex items-center mb-2">
-                    <i class="icon ion-gear-b text-yellow-300 text-lg mr-2"></i>
+                    <i class="icon ion-gear-b text-yellow-300 text-lg ml-2"></i>
                 </button>
                 <button @click="toggleMenuItems" class="flex items-center">
-                    <i class="icon ion-clock text-yellow-300 text-lg mr-2"></i>
+                    <i class="icon ion-clock text-yellow-300 text-lg ml-2"></i>
                 </button>
                 <NuxtLink to="/">
                     <button @click="toggleMenu" class="flex items-center">
-                        <i class="icon ion-home text-yellow-300 text-lg mr-2"></i>
+                        <i class="icon ion-home text-yellow-300 text-lg ml-2"></i>
                     </button>
                 </NuxtLink>
+                
             </div>
+        </div>
             <!-- End Left menu container -->
         </div>
     </div>

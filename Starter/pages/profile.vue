@@ -2,6 +2,7 @@
     <div class="container">
       <h1>Profile</h1>
       <p>Hello {{ user.email }}</p>
+      
     </div>
   </template>
   

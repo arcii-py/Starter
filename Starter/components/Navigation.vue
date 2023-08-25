@@ -6,7 +6,7 @@
             <MobileMenu />
         </div>
     </nav>
-    <GreatingUser />
+    <!-- <GreatingUser /> -->
 </template>
 
 
