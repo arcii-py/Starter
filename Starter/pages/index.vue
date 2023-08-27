@@ -1,5 +1,6 @@
 <template>
  <!-- <WelcomingCard /> -->
- <StuffVideoWithTitle />
+ <!-- <StuffVideoWithTitle /> -->
+ <StuffAffirmationCard />
 </template>
   
