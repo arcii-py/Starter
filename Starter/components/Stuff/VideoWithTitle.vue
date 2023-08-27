@@ -32,9 +32,7 @@
                                         poster="https://images.unsplash.com/photo-1496262967815-132206202600?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1823&q=80"
                                         preload="metadata" controlslist="nodownload" draggable="false"
                                         disablepictureinpicture="" class="media-item-video__video">
-                                        <source
-                                            src="videos\pexels-bruno-cervera-11649326_(720p).mp4"
-                                            type="video/mp4">
+                                        <!-- <source src="videos\pexels-bruno-cervera-11649326_(720p).mp4" type="video/mp4"> -->
                                     </video>
                                     <!---->
                                     <button aria-label="Play" class="media-item-video__button"
