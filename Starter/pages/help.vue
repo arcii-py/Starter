@@ -22,7 +22,7 @@
             draggable="false"
             class="w-full"
           >
-            <source src="videos/pexels-bruno-cervera-11649326 (720p).mp4" type="video/mp4">
+            <source src="videos\pexels-bruno-cervera-11649326 (720p).mp4" type="video/mp4">
           </video>
           <!-- Play Button: Only show if isPlaying is false -->
           <button v-if="!isPlaying" @click="playVideo" aria-label="Play" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-70 p-2 sm:p-3 lg:p-4 rounded-full">
