@@ -6,17 +6,17 @@
             <RetriveAffirmation />
         </div>
     </div>
-    <div>
-        
-    </div>
+    <AddAffirmation />
 </template>
 
 <script>
 import RetriveAffirmation from '~/components/ViewAffirm/RetriveAffirmation.vue';
+import AddAffirmation from '~/components/ViewAffirm/AddAffirmation.vue';
 
 export default {
-  components: {
-    RetriveAffirmation
-  }
+    components: {
+        RetriveAffirmation,
+        AddAffirmation
+    }
 }
 </script>
