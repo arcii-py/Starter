@@ -2,15 +2,15 @@
     <nav class="bg-gradient-to-r from-blue-400 to-green-400 p-4 shadow-md text-white relative">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
             <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">MOTI</a>
-            <DesktopMenu />
-            <MobileMenu />
+            <!-- You can add more navigation items here -->
         </div>
     </nav>
-    <!-- <GreatingUser /> -->
 </template>
 
-
 <script setup lang="ts">
-import DesktopMenu from './DesktopMenu.vue';
-import MobileMenu from './MobileMenu.vue';
+// Any reactive properties or methods related to this component can be added here
 </script>
+
+<style scoped>
+/* If you have any additional non-tailwind styles specific to this navigation, you can add them here */
+</style>

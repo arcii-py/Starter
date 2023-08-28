@@ -1,35 +1,19 @@
 <template>
-  <main>
-    <Navigation />
-    <slot />
-  </main>
-  <!-- <Footer /> -->
+  <div class="flex flex-col min-h-screen">
+    <!-- Navigation -->
+    <NavSetupNavigation />
+
+    <!-- Main Content -->
+    <div class="flex-grow">
+      <!-- Your main content goes here -->
+      <slot />
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md mt-8">
+      <div class="container mx-auto px-4 py-4">
+        <p class="text-center text-gray-600">© 2023 MOTI. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
 </template>
-
-<style scoped>
-body {
-  font-family: 'Open Sans', sans-serif; /* Example font */
-  line-height: 1.6;
-}
-
-.text-lg {
-  font-size: 18px; /* Adjusted size */
-}
-
-.transition-all {
-  transition: all 0.3s ease-in-out;
-}
-
-.space-y-4 {
-  margin: 0;
-  padding: 0;
-  /* Use margin instead of space-between for consistent spacing */
-  margin-bottom: 16px;
-}
-
-.flex-col {
-  align-items: center; /* Center alignment */
-}
-
-/* Additional styles can be added here */
-</style>
