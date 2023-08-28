@@ -1,4 +1,10 @@
 export default defineNuxtConfig({
+  components: [
+    '~/components', // This is the default directory
+    '~/components/NavSetup',
+    '~/components/ViewAffirm',
+    '~/components/Stuff' // This includes the 'stuff' directory
+  ],
   app: {
     head: {
       htmlAttrs: {

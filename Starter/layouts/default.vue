@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <!-- Navigation -->
-    <NavSetupNavigation />
+    <Navigation />
 
     <!-- Main Content -->
     <div class="flex-grow">
@@ -17,3 +17,15 @@
     </footer>
   </div>
 </template>
+
+
+
+<script>
+import Navigation from '~/components/NavSetup/Navigation.vue';
+
+export default {
+  components: {
+    Navigation
+  }
+}
+</script>
