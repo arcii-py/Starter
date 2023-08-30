@@ -1,9 +1,10 @@
 <template>
   <!-- Button to open the modal -->
-  <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 md:bottom-10 md:left-auto md:right-10 z-40">
+  <div class="fixed">
     <button @click="showAddModal = true"
-      class="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300">
-      + Add Affirmation
+      class="bg-blue-500 text-white w-10 h-10 flex items-center justify-center text-2xl rounded-full shadow-xl hover:bg-blue-600 transition-all duration-300"
+      style="line-height: 0.9;">
+      <span class="relative" style="top: -1px;">+</span>
     </button>
   </div>
 
@@ -44,6 +45,7 @@ const addAffirmation = async () => {
   } else {
     newAffirmation.value = '';
     showAddModal.value = false;
+    
 
   }
 };

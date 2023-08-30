@@ -7,7 +7,7 @@
     </nav>
 </template>
 
-<script setup lang="ts">
+<script setup>
 // Any reactive properties or methods related to this component can be added here
 </script>
 

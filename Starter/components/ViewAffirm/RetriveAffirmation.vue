@@ -11,6 +11,11 @@
       <div v-for="affirmation in affirmations" :key="affirmation.id" class="bg-white p-4 mb-4 rounded shadow">
         <p class="text-gray-700 cursor-pointer" @click="openEditModal(affirmation)">{{ affirmation.text }}</p>
       </div>
+      <div class="flex justify-end"> <!-- Add this div -->
+        
+          <AddAffirmation />
+        
+      </div>
     </div>
 
     <!-- Edit Modal -->
@@ -33,6 +38,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import AddAffirmation from '~/components/ViewAffirm/AddAffirmation.vue';
+
 
 const client = useSupabaseClient();
 const user = useSupabaseUser();
@@ -94,11 +101,13 @@ const deleteAffirmation = async (id) => {
   }
 };
 
-onMounted(fetchAffirmations);
+onMounted(async () => {
+  await fetchAffirmations();
+});
 </script>
 
 <style>
 .no-tap-highlight {
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>
