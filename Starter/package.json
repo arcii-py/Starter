@@ -15,5 +15,12 @@
     "@types/node": "^18.17.3",
     "@vite-pwa/nuxt": "^0.1.0",
     "nuxt": "^3.6.5"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "pinia": "^2.1.6"
   }
 }

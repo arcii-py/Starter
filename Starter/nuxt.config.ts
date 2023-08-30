@@ -1,9 +1,10 @@
 export default defineNuxtConfig({
   components: [
-    '~/components', // This is the default directory
+    '~/components', 
     '~/components/NavSetup',
-    '~/components/ViewAffirm',
-    '~/components/Stuff' // This includes the 'stuff' directory
+    '~/components/Stuff',
+    '~/components/ViewAffirm'
+    
   ],
   app: {
     head: {
@@ -23,9 +24,10 @@ export default defineNuxtConfig({
       // other head properties
     },
   },
-  // devtools: { enabled: true },
+  devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
   modules: [
+    // '@pinia/nuxt',
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt'

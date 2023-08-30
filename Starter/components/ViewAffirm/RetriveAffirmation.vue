@@ -11,13 +11,10 @@
       <div v-for="affirmation in affirmations" :key="affirmation.id" class="bg-white p-4 mb-4 rounded shadow">
         <p class="text-gray-700 cursor-pointer" @click="openEditModal(affirmation)">{{ affirmation.text }}</p>
       </div>
-      <div class="flex justify-end"> <!-- Add this div -->
-        
-          <AddAffirmation />
-        
-      </div>
     </div>
-
+    <div class="flex justify-end"> <!-- Add this div -->
+      <AddAffirmation />
+    </div>
     <!-- Edit Modal -->
     <div v-if="showEditModal"
       class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50"
@@ -37,9 +34,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 import AddAffirmation from '~/components/ViewAffirm/AddAffirmation.vue';
-
+import { ref, onMounted } from 'vue';
 
 const client = useSupabaseClient();
 const user = useSupabaseUser();
