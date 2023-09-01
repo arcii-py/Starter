@@ -18,7 +18,7 @@
         </div>
     </header>
 </template>
-  
+<!--   
 <script setup lang="ts">
 const user = useSupabaseUser();
 const client = useSupabaseClient();
@@ -27,4 +27,4 @@ const handleLogOut = async () => {
     navigateTo('/login');
 };
 </script>
-  
+   -->

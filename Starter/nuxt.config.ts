@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     '~/components/NavSetup',
     '~/components/Stuff',
     '~/components/ViewAffirm'
-    
   ],
   app: {
     head: {
@@ -27,11 +26,19 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
   modules: [
-    // '@pinia/nuxt',
+    '@pinia/nuxt',
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt'
   ],
+    supabase: {
+      "redirect": true,
+      "redirectOptions": {
+        "login": "/login",
+        "callback": "/confirm",
+        "exclude": []
+      }
+    },
   pwa: {
     manifest: {
       name: "MOTI",

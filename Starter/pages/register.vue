@@ -27,17 +27,20 @@
           </div>
         </div>
         <div class="mt-6">
-          <button class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" type="submit" :disabled="loading">
+          <button class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" type="submit"
+            :disabled="loading">
             Sign up
           </button>
         </div>
         <div class="mt-4 text-center text-sm">
           By signing up you agree to our
-          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer"
+            class="text-blue-500 hover:underline">
             API Terms of Service
           </a>
           and
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
+            class="text-blue-500 hover:underline">
             Privacy Policy
           </a>.
         </div>
@@ -47,51 +50,51 @@
 </template>
 
   
-  <script setup lang="ts">
-  definePageMeta({
-    layout: "auth"
-  })
-  useHead({
-    title: 'Register | supaAuth'
-  })
-  const email = ref('')
-  const password = ref('')
-  const name = ref('')
-  const lastname = ref('')
-  const company = ref('')
-  const client = useSupabaseClient()
-  const user = useSupabaseUser()
-  const loading = ref(false)
-  const authError = ref('')
-  
-  watchEffect(async () => {
-    if (user.value) {
-      await navigateTo('/')
-    }
-  });
-  
-  const signUp = async () => {
-    if (!name.value) return authError.value = 'First name required';
-    if (!lastname.value) return authError.value = 'Last name required';
-    loading.value = true
-    const { error }  = await client.auth.signUp({
-      email: email.value,
-      password: password.value,
-      options: {
-        data: {
-          first_name: name.value,
-          last_name: lastname.value,
-          company: company.value
-        }
+<script setup lang="ts">
+definePageMeta({
+  layout: "auth"
+})
+useHead({
+  title: 'Register | supaAuth'
+})
+const email = ref('')
+const password = ref('')
+const name = ref('')
+const lastname = ref('')
+const company = ref('')
+const client = useSupabaseClient()
+const user = useSupabaseUser()
+const loading = ref(false)
+const authError = ref('')
+
+watchEffect(async () => {
+  if (user.value) {
+    await navigateTo('/')
+  }
+});
+
+const signUp = async () => {
+  if (!name.value) return authError.value = 'First name required';
+  if (!lastname.value) return authError.value = 'Last name required';
+  loading.value = true
+  const { error } = await client.auth.signUp({
+    email: email.value,
+    password: password.value,
+    options: {
+      data: {
+        first_name: name.value,
+        last_name: lastname.value,
+        company: company.value
       }
-    })
-    if (error) {
-      loading.value = false
-      authError.value = 'Failed to fetch'
     }
+  })
+  if (error) {
+    loading.value = false
+    authError.value = 'Failed to fetch'
   }
-  
-  const clearError = () => {
-    authError.value = ''
-  }
-  </script>
+}
+
+const clearError = () => {
+  authError.value = ''
+}
+</script>
