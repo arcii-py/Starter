@@ -36,7 +36,7 @@ export default defineNuxtConfig({
       "redirectOptions": {
         "login": "/login",
         "callback": "/confirm",
-        "exclude": []
+        "exclude": ["/register"]
       }
     },
   pwa: {
@@ -67,12 +67,14 @@ export default defineNuxtConfig({
         },
       ],
     },
-    workbox: {
-      navigateFallback: "/",
-    },// Pwa dev options 
+    // Pwa dev options 
+    // workbox: {
+    //   navigateFallback: "/",
+    // },
+    // Pwa dev options 
     devOptions: {
       enabled: true,
       type: "module",
-    },// Pwa dev options 
+    },
   }
 })

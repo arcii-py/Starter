@@ -1,11 +1,21 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500 p-4 lg:p-16">
-    <div class="max-w-md mx-auto w-full bg-white p-4 rounded-lg shadow-md">
-      <slot />
-    </div>
+  <div :class="bgClass">
+    <slot />
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue';
+
+const bgClass = ref('bg-red-700');
+
+// Function to change background class
+const changeBackground = (newClass) => {
+  bgClass.value = newClass;
+};
+// Provide the function to child components
+provide('changeBackground', changeBackground);
+</script>
 
 
 
