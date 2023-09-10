@@ -3,6 +3,7 @@
       :class="{'shrink': isShrunk}" 
       @click="toggleShrink" 
       @mouseover="expand"
+      
       class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-4 rounded shadow-md transition-all duration-500 flex items-center justify-center cursor-pointer" 
       role="alert"
     >

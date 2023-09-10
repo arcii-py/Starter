@@ -5,6 +5,7 @@
             <!-- You can add more navigation items here -->
         </div>
     </nav>
+    <TestMenu />
 </template>
 
 <script setup>
