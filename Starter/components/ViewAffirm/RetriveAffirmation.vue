@@ -9,12 +9,13 @@
     <!-- Display Affirmations -->
     <div v-else class="w-full max-w-2xl select-none no-tap-highlight">
       <div v-for="affirmation in affirmations" :key="affirmation.id" class="bg-white p-4 mb-4 rounded shadow">
-        <p class="text-gray-700 cursor-pointer" @click="openEditModal(affirmation)">{{ affirmation.text }}</p>
+        <p class="text-gray-700 cursor-pointer break-words" @click="openEditModal(affirmation)">{{ affirmation.text }}</p>
       </div>
     </div>
     <div class="flex justify-end">
+
     <!-- Button to open the modal -->
-    <div class="fixed">
+    <div class="absolute left-1/2 transform -translate-x-1/2">
       <button @click="showAddModal = true"
         class="bg-blue-500 text-white w-10 h-10 flex items-center justify-center text-2xl rounded-full shadow-xl hover:bg-blue-600 transition-all duration-300"
         style="line-height: 0.9;">

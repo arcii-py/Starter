@@ -49,9 +49,9 @@ export default defineNuxtConfig({
     },
   pwa: {
     manifest: {
-      name: "MOTI",
-      short_name: "MOTI",
-      description: "Testing MOTI",
+      name: "Law of attraction",
+      short_name: "LOA",
+      description: "Law of attraction affirmation helper.",
       icons: [
         {
           src: "icons/icon_64x64.png",
