@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
+  imports: {
+    dirs: ['stores'],
+  },
   components: [
     '~/components', 
     '~/components/NavSetup',
@@ -26,7 +29,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
   modules: [
+    [
     '@pinia/nuxt',
+    {
+      autoImports: ['defineStore', 'acceptHMRUpdate'],
+    },
+  ],
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt'
@@ -36,7 +44,7 @@ export default defineNuxtConfig({
       "redirectOptions": {
         "login": "/login",
         "callback": "/confirm",
-        "exclude": [""]
+        "exclude": ["/register"]
       }
     },
   pwa: {

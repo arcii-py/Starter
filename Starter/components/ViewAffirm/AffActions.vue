@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <button class="action-btn">Select Action</button>
     <div class="actions-menu hidden">
@@ -40,4 +40,4 @@ export default {
 .hidden {
   display: none;
 }
-</style>
+</style> -->

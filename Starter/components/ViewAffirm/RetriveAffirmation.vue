@@ -4,7 +4,7 @@
     <div v-if="loading" class="text-blue-500">Loading affirmations...</div>
 
     <!-- No Affirmations State -->
-    <div v-else-if="affirmations.length === 0" class="text-gray-500">No affirmations found.</div>
+    <div v-else-if="affirmations.length === 0" class="text-gray-500">Start your journey by adding an affirmation. What are you grateful for?</div>
 
     <!-- Display Affirmations -->
     <div v-else class="w-full max-w-2xl select-none no-tap-highlight">
@@ -12,9 +12,28 @@
         <p class="text-gray-700 cursor-pointer" @click="openEditModal(affirmation)">{{ affirmation.text }}</p>
       </div>
     </div>
-    <div class="flex justify-end"> <!-- Add this div -->
-      <AddAffirmation />
+    <div class="flex justify-end">
+    <!-- Button to open the modal -->
+    <div class="fixed">
+      <button @click="showAddModal = true"
+        class="bg-blue-500 text-white w-10 h-10 flex items-center justify-center text-2xl rounded-full shadow-xl hover:bg-blue-600 transition-all duration-300"
+        style="line-height: 0.9;">
+        <span class="relative" style="top: -1px;">+</span>
+      </button>
     </div>
+
+    <!-- Add Modal -->
+    <div v-if="showAddModal" class="fixed inset-0 flex items-center justify-center z-50 p-4">
+      <div class="bg-white p-4 rounded shadow-lg max-w-full w-full sm:w-4/5 md:w-1/2 lg:w-1/3">
+        <h2 class="text-xl mb-4">Add New Affirmation</h2>
+        <textarea v-model="newAffirmation" rows="4" class="w-full p-2 rounded border resize-none"></textarea>
+        <div class="flex justify-end mt-4">
+          <button @click="addAffirmation" class="bg-green-500 text-white px-4 py-2 rounded mr-2">Add</button>
+          <button @click="showAddModal = false" class="bg-red-500 text-white px-4 py-2 rounded">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Edit Modal -->
     <div v-if="showEditModal"
       class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50"
@@ -32,17 +51,19 @@
     </div>
   </div>
 </template>
-
 <script setup>
-import AddAffirmation from '~/components/ViewAffirm/AddAffirmation.vue';
+// import AddAffirmation from '~/components/ViewAffirm/AddAffirmation.vue';
 import { ref, onMounted } from 'vue';
 
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 const affirmations = ref([]);
 const loading = ref(true);
+const showAddModal = ref(false);
+const newAffirmation = ref('');
 const showEditModal = ref(false);
 const editingAffirmation = ref({});
+
 
 const fetchAffirmations = async () => {
   try {
@@ -63,10 +84,35 @@ const fetchAffirmations = async () => {
   }
 };
 
+
+const addAffirmation = async () => {
+  if (newAffirmation.value.trim() === '') return;
+
+  const affirmationData = {
+    text: newAffirmation.value,
+    user_id: user.value.id  // Add the user_id to the data being sent
+  };
+
+  const { data, error } = await client.from('affirmations').insert([affirmationData]);
+  if (error) {
+    console.error('Error adding affirmation:', error);
+  } else {
+    newAffirmation.value = '';
+    showAddModal.value = false;
+    await fetchAffirmations();  // Fetch the latest data after adding a new affirmation
+  }
+};
+
+
 const openEditModal = (affirmation) => {
+  if (!affirmation.id) {
+    console.error('Affirmation ID is missing:', affirmation);
+    return;
+  }
   editingAffirmation.value = { ...affirmation };
   showEditModal.value = true;
 };
+
 
 const updateAffirmation = async () => {
   try {
@@ -84,6 +130,10 @@ const updateAffirmation = async () => {
 };
 
 const deleteAffirmation = async (id) => {
+  if (!id) {
+    console.error('ID is undefined or not valid');
+    return;
+  }
   try {
     const { error } = await client.from('affirmations').delete().eq('id', id);
     if (error) {
@@ -96,6 +146,7 @@ const deleteAffirmation = async (id) => {
     console.error('An error occurred:', error);
   }
 };
+
 
 onMounted(async () => {
   await fetchAffirmations();

@@ -1,16 +1,17 @@
 <template>
     <RetriveAffirmation />
     <!-- <Counter /> -->
-   <WelcomingCard />
+   <!-- <WelcomingCard /> -->
    <br>
-   <div>
+   <!-- <div>
         <h1 class="bg-red-700">Countries Test from pinia store and supabase</h1>
         <ul>
             <li v-for="country in countries" :key="country.id">
                 {{ country.name }}
             </li>
         </ul>
-    </div>
+    </div> -->
+    
 </template>
 
 
