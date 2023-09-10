@@ -11,7 +11,7 @@
             </li>
         </ul>
     </div> -->
-    
+    <Disclamer />
 </template>
 
 
