@@ -50,7 +50,7 @@ definePageMeta({
   layout: "auth"
 })
 useHead({
-  title: 'Login | MOTI'
+  title: 'Login | LOA'
 })
 const user = useSupabaseUser()
 const loading = ref(false)

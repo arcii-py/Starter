@@ -4,7 +4,7 @@
     <div class="transform perspective-1000 rotate-x-4 space-y-4 sm:space-y-6 lg:space-y-8 max-w-2xl mx-4 sm:mx-auto">
       <!-- Heading -->
       <h1 class="text-center text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight mb-2">
-        Welcome to <span class="gradient-text text-4xl sm:text-5xl lg:text-7xl">MOTI</span>!
+        Welcome to <span class="gradient-text text-4xl sm:text-5xl lg:text-7xl">LOA</span>!
       </h1>
 
       <!-- Description -->

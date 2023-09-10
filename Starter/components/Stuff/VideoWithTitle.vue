@@ -12,7 +12,7 @@
                             <div aria-level="1" role="heading"
                                 class="px-balanced-text common-heading__title h1 pillar__title">
                                 <span class="px-balanced-text__inner px-balanced-text__inner--html">
-                                    <p>Welcome to <em>MOTI</em> !</p>
+                                    <p>Welcome to <em>LOA</em> !</p>
                                 </span>
                             </div>
                             <div class="px-balanced-text common-heading__description sh1" style="">
