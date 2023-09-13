@@ -47,6 +47,7 @@ export default {
     height: 50px;
     right: 4px; /* Small margin from the right edge */
     
+    
 }
 
 .nav-menu:not(.shrink) {
@@ -54,14 +55,16 @@ export default {
     height: auto;
     border-radius: 8px;
     padding: 16px;
-    transform: translateX(0); /* No need for transform here */
+    
 }
 
 @media (max-width: 640px) { /* Tailwind's breakpoint for mobile */
     .nav-menu {
         width: 50px;
         height: 50px;
-        transform: translate(-50%); 
+        transform: translate(-50%);
+    
+        
     }
     .nav-menu:not(.shrink) {
         width: 200px; /* Width for mobile */
@@ -73,6 +76,7 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    bottom: 50px;
 }
 
 .content {
