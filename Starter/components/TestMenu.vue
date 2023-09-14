@@ -1,6 +1,6 @@
 <template>
     <div v-if="showMenu" ref="menu" :class="{ 'shrink': isShrunk }" @click="toggleShrink"
-        class="nav-menu bg-primary border-l-4 border-accent text-textColor p-4 rounded-full shadow-md transition-all duration-700 flex items-center justify-center cursor-pointer fixed bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-auto lg:top-1 lg:left-auto lg:right-0"
+    class="nav-menu bg-primary border-l-4 border-accent text-textColor p-4 rounded-full shadow-md transition-all duration-500 flex items-center justify-center cursor-pointer fixed bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-auto lg:top-1 lg:left-auto lg:right-4"
         role="navigation">
         <div v-if="!isShrunk" class="content lg:flex lg:space-x-4">
             <ul class="list-none space-y-2 lg:space-y-0 lg:flex lg:space-x-4">
@@ -65,8 +65,8 @@ export default {
     width: 50px;
     height: 50px;
     right: 4px; /* Small margin from the right edge */
-    
-    
+    transition: width 0.5s ease, height 0.5s ease, border-radius 0.5s ease; 
+    /* transition: all 0.5s ease; */
 }
 
 .nav-menu:not(.shrink) {
@@ -75,21 +75,39 @@ export default {
     border-radius: 8px;
     padding: 16px;
     z-index: 50;
-    
 }
 
 @media (max-width: 640px) { /* Tailwind's breakpoint for mobile */
     .nav-menu {
         width: 50px;
         height: 50px;
-        transform: translate(-50%);
+        left: 50%; /* Center the menu */
+        transform: translateX(-50%); /* Adjust the transform to only affect the X-axis */
         z-index: 50;
-        
-        
     }
     .nav-menu:not(.shrink) {
         width: 200px; /* Width for mobile */
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 641px) { /* Tailwind's breakpoint for desktop */
+    .nav-menu {
+        
+        right: 16px; /* Adjust as needed for desired distance from the right */
+        transform: none; /* Reset the transform */
+    }
+    .nav-menu:not(.shrink) {
+        width: auto; /* Let it adjust based on content */
+        height: auto;
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content {
+        display: flex;
+        gap: 16px; /* Space between items */
     }
 }
 
@@ -98,6 +116,7 @@ export default {
     height: 50px;
     border-radius: 50%;
     bottom: 50px;
+    transition: width 0.5s ease, height 0.5s ease, border-radius 0.5s ease; /* Consistent transition duration */
 }
 
 .content {
