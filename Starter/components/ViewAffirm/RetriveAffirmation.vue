@@ -17,7 +17,7 @@
     <!-- Button to open the modal -->
     <div class="absolute left-1/2 transform -translate-x-1/2">
       <button @click="showAddModal = true"
-        class="bg-blue-500 text-white w-10 h-10 flex items-center justify-center text-2xl rounded-full shadow-xl hover:bg-blue-600 transition-all duration-300"
+        class="relative z-10 bg-blue-500 text-white w-10 h-10 flex items-center justify-center text-2xl rounded-full shadow-xl hover:bg-blue-600 transition-all duration-300"
         style="line-height: 0.9;">
         <span class="relative" style="top: -1px;">+</span>
       </button>

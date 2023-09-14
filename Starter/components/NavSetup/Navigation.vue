@@ -3,9 +3,9 @@
         <div class="mx-auto flex flex-wrap justify-between items-center">
             <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">LOA</a>
             <!-- You can add more navigation items here -->
+            <TestMenu />
         </div>
     </nav>
-    <TestMenu />
 </template>
 
 <script setup>

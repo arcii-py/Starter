@@ -1,10 +1,11 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <main class="flex flex-col min-h-screen">
+  <div class="">
     <!-- Navigation -->
     <Navigation />
-
+  </div>
     <!-- Main Content -->
-    <div class="flex-grow">
+    <div class="flex-grow pb-16 md:pb-0"> <!-- Add padding-bottom on mobile -->
       <!-- Your main content goes here -->
       <slot />
     </div>
@@ -15,7 +16,7 @@
         <p class="text-center text-gray-600">© 2023 LOA. All rights reserved.</p>
       </div>
     </footer>
-  </div>
+  </main>
 </template>
 
 
