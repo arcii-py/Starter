@@ -5,7 +5,7 @@
         <div v-if="!isShrunk" class="content lg:flex lg:space-x-4">
             <ul class="list-none space-y-2 lg:space-y-0 lg:flex lg:space-x-4">
                 <li><a href="#" class="text-accent hover:underline">Home</a></li>
-                <li><a href="#" class="text-accent hover:underline">About</a></li>
+                <li><nuxt-link to="/about" @click.stop class="text-accent hover:underline">About</nuxt-link></li>
                 <li><a href="#" class="text-accent hover:underline">Services</a></li>
                 <li><a href="#" class="text-accent hover:underline">Contact</a></li>
             </ul>

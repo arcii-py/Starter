@@ -1,5 +1,6 @@
 <template>
     <RetriveAffirmation />
+    
     <!-- <Counter /> -->
    <!-- <WelcomingCard /> -->
    <br>
@@ -12,6 +13,7 @@
         </ul>
     </div> -->
     <Disclamer />
+    <MyComponent />
 </template>
 
 
