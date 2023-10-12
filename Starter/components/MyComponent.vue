@@ -1,27 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const { getLunar } = await import('lunar-info');
 
+import { ref, watch } from 'vue';
 
-type ZodiacSign =
-    | 'Rat'
-    | 'Ox'
-    | 'Tiger'
-    | 'Rabbit'
-    | 'Dragon'
-    | 'Snake'
-    | 'Horse'
-    | 'Goat'
-    | 'Monkey'
-    | 'Rooster'
-    | 'Dog'
-    | 'Pig';
+type ZodiacSign = 'Rat' | 'Ox' | 'Tiger' | 'Rabbit' | 'Dragon' | 'Snake' | 'Horse' | 'Goat' | 'Monkey' | 'Rooster' | 'Dog' | 'Pig';
 
+let getLunar: any;
+const isLoading = ref(true);
+
+const birthYear = ref(1993);
+const birthMonth = ref(8);
+const birthDay = ref(12);
+const zodiacSign = ref<ZodiacSign | null>(null);
+const good = ref<ZodiacSign[]>([]);
+const bad = ref<ZodiacSign[]>([]);
+const goodYears = ref<number[]>([]);
+const badYears = ref<number[]>([]);
+
+// ... Definitions of getChineseZodiac and getCompatibility
 function getChineseZodiac(
     year: number,
     month: number,
     day: number
 ): ZodiacSign {
+    if (year < 1900 || year > 2099) {
+        throw new Error("Year must be between 1900 and 2099");
+    }
     const lunarDate = getLunar(year, month, day);
     const lunarYear = lunarDate.yin_y;
 
@@ -64,19 +67,9 @@ function getCompatibility(zodiacSign: ZodiacSign): {
     return compatibility[zodiacSign];
 }
 
-const birthYear = ref(1993);
-const birthMonth = ref(8); // Month
-const birthDay = ref(12);
-
-const zodiacSign = ref<ZodiacSign | null>(null);
-const good = ref<ZodiacSign[]>([]);
-const bad = ref<ZodiacSign[]>([]);
-const goodYears = ref<number[]>([]);
-const badYears = ref<number[]>([]);
-
-
 const currentYear = new Date().getFullYear();
 const currentZodiacSign = ref(''); // Changed to ref for reactivity
+
 const updateZodiacInfo = () => {
     zodiacSign.value = getChineseZodiac(birthYear.value, birthMonth.value, birthDay.value);
     const { good: g, bad: b } = getCompatibility(zodiacSign.value);
@@ -99,8 +92,20 @@ const updateZodiacInfo = () => {
     currentZodiacSign.value = getChineseZodiac(currentYear, birthMonth.value, birthDay.value);
 };
 
-updateZodiacInfo();
+// Watch for changes in birth date fields and update zodiac information
+watch([birthYear, birthMonth, birthDay], () => {
+    if (!isLoading.value && birthYear.value >= 1900 && birthYear.value <= 2099) {
+        updateZodiacInfo();
+    }
+});
 
+import('lunar-info').then((module) => {
+    getLunar = module.getLunar;
+    isLoading.value = false;
+    updateZodiacInfo();
+}).catch(err => {
+    console.error("Failed to load lunar-info", err);
+});
 </script>
 
 <template>
