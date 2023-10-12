@@ -7,9 +7,9 @@ type ZodiacSign = 'Rat' | 'Ox' | 'Tiger' | 'Rabbit' | 'Dragon' | 'Snake' | 'Hors
 let getLunar: any;
 const isLoading = ref(true);
 
-const birthYear = ref(2024);
-const birthMonth = ref(3);
-const birthDay = ref(1);
+const birthYear = ref(1993);
+const birthMonth = ref(8);
+const birthDay = ref(12);
 const zodiacSign = ref<ZodiacSign | null>(null);
 const good = ref<ZodiacSign[]>([]);
 const bad = ref<ZodiacSign[]>([]);
@@ -157,19 +157,27 @@ import('lunar-info').then((module) => {
 </script>
 
 <template>
-    <div class="p-8 bg-gray-100 text-center rounded-lg shadow-md">
+    <div class="p-8 bg-white text-center rounded-lg shadow-xl mx-auto max-w-2xl">
         <!-- Input form -->
-        <div class="mb-8">
-            <label for="birthYear" class="mr-2">Year:</label>
-            <input id="birthYear" v-model="birthYear" @input="updateZodiacInfo" class="border rounded px-2 py-1">
-            <label for="birthMonth" class="mr-2 ml-4">Month:</label>
-            <input id="birthMonth" v-model="birthMonth" @input="updateZodiacInfo" class="border rounded px-2 py-1">
-            <label for="birthDay" class="mr-2 ml-4">Day:</label>
-            <input id="birthDay" v-model="birthDay" @input="updateZodiacInfo" class="border rounded px-2 py-1">
+        <div class="mb-8 flex flex-row justify-center items-center space-y-0 space-x-4">
+            <div>
+                <label for="birthYear" class="block text-sm font-medium text-gray-700">Year:</label>
+                <input id="birthYear" v-model="birthYear" @input="updateZodiacInfo" class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div>
+                <label for="birthMonth" class="block text-sm font-medium text-gray-700">Month:</label>
+                <input id="birthMonth" v-model="birthMonth" @input="updateZodiacInfo" class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
+            <div>
+                <label for="birthDay" class="block text-sm font-medium text-gray-700">Day:</label>
+                <input id="birthDay" v-model="birthDay" @input="updateZodiacInfo" class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2">
+            </div>
         </div>
 
-        <h1 class="text-3xl font-bold mb-4">Your Chinese zodiac sign is <span class="text-violet-700">{{ zodiacElement }} - {{ zodiacSign
-        }}</span>.</h1>
+        <hr class="border-t border-black my-4 -mt-3">
+
+        <h1 class="text-3xl font-bold mb-4">Your Chinese zodiac sign is:<span class="text-violet-700 block">{{ zodiacElement }} - {{ zodiacSign
+        }}</span></h1>
         <div class="mb-4">
             <h2 class="text-xl font-semibold">Good compatibility with:</h2>
             <p class="text-lg text-gray-700">{{ good.join(', ') }}</p>
