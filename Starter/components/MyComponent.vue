@@ -7,26 +7,29 @@ type ZodiacSign = 'Rat' | 'Ox' | 'Tiger' | 'Rabbit' | 'Dragon' | 'Snake' | 'Hors
 let getLunar: any;
 const isLoading = ref(true);
 
-const birthYear = ref(2017);
-const birthMonth = ref(1);
-const birthDay = ref(28);
+const birthYear = ref(2024);
+const birthMonth = ref(3);
+const birthDay = ref(1);
 const zodiacSign = ref<ZodiacSign | null>(null);
 const good = ref<ZodiacSign[]>([]);
 const bad = ref<ZodiacSign[]>([]);
 const goodYears = ref<number[]>([]);
 const badYears = ref<number[]>([]);
+const zodiacElement = ref<string | null>(null);
 
-function getChineseZodiac(
+
+
+
+function getChineseZodiacWithElement(
     year: number,
     month: number,
     day: number
-): ZodiacSign {
+): { sign: ZodiacSign; element: string } {
     if (year < 1900 || year > 2099) {
         throw new Error("Year must be between 1900 and 2099");
     }
     const lunarDate = getLunar(year, month, day);
     const lunarYear = lunarDate.yin_y;
-    
 
     const zodiacSigns: ZodiacSign[] = [
         'Rat',
@@ -42,8 +45,38 @@ function getChineseZodiac(
         'Dog',
         'Pig',
     ];
-    return zodiacSigns[(lunarYear - 4) % 12];
+    const sign = zodiacSigns[(lunarYear - 4) % 12];
+
+    const remainder = (year - 1924) % 10;
+    let element = '';
+    switch (remainder) {
+    case 0:
+    case 1:
+        element = 'Wood';
+        break;
+    case 2:
+    case 3:
+        element = 'Fire';
+        break;
+    case 4:
+    case 5:
+        element = 'Earth';
+        break;
+    case 6:
+    case 7:
+        element = 'Metal';
+        break;
+    case 8:
+    case 9:
+        element = 'Water';
+        break;
 }
+
+
+    return { sign, element };
+}
+
+
 
 function getCompatibility(zodiacSign: ZodiacSign): {
     good: ZodiacSign[];
@@ -69,17 +102,22 @@ function getCompatibility(zodiacSign: ZodiacSign): {
 
 const currentYear = new Date().getFullYear();
 const currentZodiacSign = ref('');
+const currentElement = ref('');
+
 const updateZodiacInfo = () => {
-    zodiacSign.value = getChineseZodiac(birthYear.value, birthMonth.value, birthDay.value);
+    const zodiacInfo = getChineseZodiacWithElement(birthYear.value, birthMonth.value, birthDay.value);
+    zodiacSign.value = zodiacInfo.sign;
+    zodiacElement.value = zodiacInfo.element;
     const { good: g, bad: b } = getCompatibility(zodiacSign.value);
     good.value = g;
     bad.value = b;
+    
 
     goodYears.value = [];
     badYears.value = [];
 
     for (let year = currentYear - 7; year <= currentYear + 7; year++) {
-        const sign = getChineseZodiac(year, birthMonth.value, birthDay.value);
+        const sign = getChineseZodiacWithElement(year, birthMonth.value, birthDay.value).sign;
         if (good.value.includes(sign)) {
             goodYears.value.push(year);
         }
@@ -91,8 +129,15 @@ const updateZodiacInfo = () => {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;  // JavaScript months are 0-based
     const currentDay = currentDate.getDate();
-    currentZodiacSign.value = getChineseZodiac(currentYear, currentMonth, currentDay);
+    currentZodiacSign.value = getChineseZodiacWithElement(currentYear, currentMonth, currentDay).sign;
+
+
+    const currentZodiacInfo = getChineseZodiacWithElement(currentYear, currentMonth, currentDay);
+    currentZodiacSign.value = currentZodiacInfo.sign;
+    currentElement.value = currentZodiacInfo.element;
+
 };
+
 
 
 // Watch for changes in birth date fields and update zodiac information
@@ -123,7 +168,7 @@ import('lunar-info').then((module) => {
             <input id="birthDay" v-model="birthDay" @input="updateZodiacInfo" class="border rounded px-2 py-1">
         </div>
 
-        <h1 class="text-3xl font-bold mb-4">Your Chinese zodiac sign is <span class="text-violet-700">{{ zodiacSign
+        <h1 class="text-3xl font-bold mb-4">Your Chinese zodiac sign is <span class="text-violet-700">{{ zodiacElement }} - {{ zodiacSign
         }}</span>.</h1>
         <div class="mb-4">
             <h2 class="text-xl font-semibold">Good compatibility with:</h2>
@@ -148,7 +193,7 @@ import('lunar-info').then((module) => {
 
         <div class="mb-4">
             <h2 class="text-xl font-semibold">Current Year:</h2>
-            <p class="text-lg text-gray-700">{{ currentYear }} - {{ currentZodiacSign }}</p>
+            <p class="text-lg text-gray-700">{{ currentYear }} - {{ currentElement }} {{ currentZodiacSign }}</p>
         </div>
 
         <div class="mb-4">
