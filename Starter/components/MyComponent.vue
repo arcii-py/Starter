@@ -7,16 +7,15 @@ type ZodiacSign = 'Rat' | 'Ox' | 'Tiger' | 'Rabbit' | 'Dragon' | 'Snake' | 'Hors
 let getLunar: any;
 const isLoading = ref(true);
 
-const birthYear = ref(1993);
-const birthMonth = ref(8);
-const birthDay = ref(12);
+const birthYear = ref(2017);
+const birthMonth = ref(1);
+const birthDay = ref(28);
 const zodiacSign = ref<ZodiacSign | null>(null);
 const good = ref<ZodiacSign[]>([]);
 const bad = ref<ZodiacSign[]>([]);
 const goodYears = ref<number[]>([]);
 const badYears = ref<number[]>([]);
 
-// ... Definitions of getChineseZodiac and getCompatibility
 function getChineseZodiac(
     year: number,
     month: number,
@@ -27,6 +26,7 @@ function getChineseZodiac(
     }
     const lunarDate = getLunar(year, month, day);
     const lunarYear = lunarDate.yin_y;
+    
 
     const zodiacSigns: ZodiacSign[] = [
         'Rat',
@@ -68,8 +68,7 @@ function getCompatibility(zodiacSign: ZodiacSign): {
 }
 
 const currentYear = new Date().getFullYear();
-const currentZodiacSign = ref(''); // Changed to ref for reactivity
-
+const currentZodiacSign = ref('');
 const updateZodiacInfo = () => {
     zodiacSign.value = getChineseZodiac(birthYear.value, birthMonth.value, birthDay.value);
     const { good: g, bad: b } = getCompatibility(zodiacSign.value);
@@ -89,8 +88,12 @@ const updateZodiacInfo = () => {
         }
     }
 
-    currentZodiacSign.value = getChineseZodiac(currentYear, birthMonth.value, birthDay.value);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1;  // JavaScript months are 0-based
+    const currentDay = currentDate.getDate();
+    currentZodiacSign.value = getChineseZodiac(currentYear, currentMonth, currentDay);
 };
+
 
 // Watch for changes in birth date fields and update zodiac information
 watch([birthYear, birthMonth, birthDay], () => {
