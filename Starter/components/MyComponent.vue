@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getLunar } from 'lunar-info';
+const { getLunar } = await import('lunar-info');
+
 
 type ZodiacSign =
     | 'Rat'
