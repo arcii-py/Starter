@@ -12,8 +12,8 @@
             </li>
         </ul>
     </div> -->
-    <Disclamer />
-    <MyComponent />
+    <!-- <Disclamer /> -->
+    <TextNumerology />
 </template>
 
 

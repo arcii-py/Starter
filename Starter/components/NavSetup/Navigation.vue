@@ -1,7 +1,8 @@
 <template>
     <nav class="bg-gradient-to-r from-blue-400 to-green-400 p-4 shadow-md text-white relative">
         <div class="mx-auto flex flex-wrap justify-between items-center">
-            <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">LOA</a>
+            <!-- <a href="/" class="text-2xl font-bold hover:underline transition-all duration-300">LOA</a> -->
+            <nuxt-link to="/" @click.stop class="text-2xl font-bold hover:underline transition-all duration-300">LOA</nuxt-link>
             <!-- You can add more navigation items here -->
             <TestMenu />
         </div>
@@ -15,3 +16,4 @@
 <style scoped>
 /* If you have any additional non-tailwind styles specific to this navigation, you can add them here */
 </style>
+

@@ -157,7 +157,7 @@ import('lunar-info').then((module) => {
 </script>
 
 <template>
-    <div class="p-8 bg-white text-center rounded-lg shadow-xl mx-auto max-w-2xl">
+    <div class="p-8 bg-white text-center rounded-lg shadow-xl mx-auto max-w-2xl m-8">
         <!-- Input form -->
         <div class="mb-8 flex flex-row justify-center items-center space-y-0 space-x-4">
             <div>
@@ -214,8 +214,8 @@ import('lunar-info').then((module) => {
                 <span class="text-green-500">Green</span>
             </p>
         </div>
-
-        <div class="relative">
+        <hr class="border-t border-black my-4">
+        <div class="relative mt-12">
             <div class="absolute bottom-0 right-0">
                 <p class="text-xs ">*Calculated from the curent date, not birth date.</p>
                 <p class="text-xs ">**Colors are currently fixed for rooster.</p>

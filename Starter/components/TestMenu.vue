@@ -7,7 +7,7 @@
                 <li><a href="#" class="text-accent hover:underline">Home</a></li>
                 <li><nuxt-link to="/about" @click.stop class="text-accent hover:underline">About</nuxt-link></li>
                 <li><a href="#" class="text-accent hover:underline">Services</a></li>
-                <li><a href="#" class="text-accent hover:underline">Contact</a></li>
+                <li><nuxt-link to="/chinese-zodiac" @click.stop class="text-accent hover:underline">Chinese Zodiac</nuxt-link></li>
             </ul>
         </div>
         <span v-if="isShrunk"
