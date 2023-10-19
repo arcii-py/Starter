@@ -13,7 +13,7 @@
         </ul>
     </div> -->
     <!-- <Disclamer /> -->
-    <TextNumerology />
+    
 </template>
 
 
