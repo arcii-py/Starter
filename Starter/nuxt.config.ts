@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     },
   },
   // devtools: { enabled: true },
-  css: ['@/assets/css/tailwind.css'],
+  css: ['@/assets/css/tailwind.css','animate.css'],
   modules: [
     [
     '@pinia/nuxt',

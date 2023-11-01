@@ -50,5 +50,5 @@ module.exports = {
     ringOpacity: false,
   },
   
-  plugins: [],
+  plugins: [require("daisyui")],
 };
