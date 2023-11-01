@@ -1,9 +1,25 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
-    <div class="max-w-md w-full space-y-4 bg-white p-6 rounded-lg shadow-md">
-      <h1 class="text-2xl font-semibold mb-4 text-center">Create an account</h1>
-      <form @submit.prevent="signUp" class="space-y-4">
-        <ErrorAlert :error-msg="authError" @clearError="clearError" />
+  <div class="relative w-screen h-screen overflow-hidden">
+    <div class="relative min-h-screen flex flex-col items-center justify-center bg-lightBlue-100 dark:bg-gray-900 animate__animated animate__fadeIn">
+      
+      <!-- Limited Time Offer Banner -->
+      <div class="absolute top-0 left-0 w-full text-center bg-green-500 text-white py-2 z-50 animate__animated animate__fadeInDown">
+        Limited Time Offer: <br> Get a free month when you sign up today!
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-12 p-4 pt-12 w-full">
+        <div class="text-center md:text-left space-y-4 text-gray-700 dark:text-white animate__animated animate__fadeInLeft w-full md:w-1/2">
+          <h1 class="text-5xl font-bold">Create an Account</h1>
+          <p class="text-lg">Join us and start your journey.</p>
+          <div class="text-sm text-gray-500">Join thousands discovering their path!</div>
+        </div>
+        
+        <!-- Registration Form -->
+        <div class="card w-full md:max-w-sm shadow-2xl bg-gray-100 dark:bg-gray-800 border-t-4 border-green-500 dark:border-yellow-500 p-6 space-y-4 rounded-lg animate__animated animate__fadeInRight">
+          <form @submit.prevent="signUp" class="space-y-4">
+            <ErrorAlert :error-msg="authError" @clearError="clearError" />
+
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-600 mb-2">First name</label>
           <input class="w-full p-3 border rounded-md" type="text" placeholder="First name" v-model="name" />
@@ -20,18 +36,21 @@
           <label class="block text-sm font-medium text-gray-600 mb-2">Password</label>
           <input class="w-full p-3 border rounded-md" type="password" placeholder="Password" v-model="password" />
         </div>
-        <div class="mt-4">
-          <button class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600" type="submit" :disabled="loading">
-            Sign up
-          </button>
+
+         <div class="form-control mt-4">
+              <button class="btn btn-primary w-full bg-green-500 text-white dark:bg-yellow-500 dark:text-gray-900" type="submit" :disabled="loading">
+                Sign up
+              </button>
+            </div>
+            <div class="mt-4 text-center text-sm">
+              By signing up you agree to our
+              <a href="#" class="text-green-500 hover:underline">API Terms of Service</a>
+              and
+              <a href="#" class="text-green-500 hover:underline">Privacy Policy</a>.
+            </div>
+          </form>
         </div>
-        <div class="mt-4 text-center text-sm">
-          By signing up you agree to our
-          <a href="#" class="text-blue-500 hover:underline">API Terms of Service</a>
-          and
-          <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a>.
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>

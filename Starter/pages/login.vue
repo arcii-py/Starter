@@ -60,6 +60,13 @@
                 type="submit">Unlock Mysteries</button>
             </div>
           </form>
+
+          <!-- Updated Register link -->
+          <div class="text-center mt-4">
+            <span class="text-gray-600 dark:text-gray-300">Don't have an account?</span>
+            <NuxtLink to="/register" class="text-blue-500 hover:underline dark:text-blue-400"> Register</NuxtLink>
+          </div>
+
         </div>
       </div>
     </div>
